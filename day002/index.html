@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>day002</title>
+  </head>
+  <body>
+    <div class="background">
+      <button id="hamburger-btn" class="start-animation">
+        <div class="line line_1"></div>
+        <div class="line line_2"></div>
+        <div class="line line_3"></div>
+      </button>
+    </div>
+
+    <script>
+      const btn = document.getElementById("hamburger-btn");
+
+      btn.addEventListener("click", function () {
+        btn.classList.toggle("on");
+        btn.classList.remove("start-animation");
+      });
+    </script>
+    >
+  </body>
+</html>
