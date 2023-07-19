@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>day005</title>
+  </head>
+  <body>
+    <div class="background">
+      <div class="box">
+        <div class="title_container">
+          <div class="title_top">
+            <h1 class="title">WEEKLY REPORT</h1>
+            <p class="sub_title">Revenue</p>
+          </div>
+          <div class="title_bottom">
+            <p class="date">01. Feb. 07. feb</p>
+            <p class="money">$ 3621.79</p>
+          </div>
+        </div>
+        <div class="contents_container">
+          <div class="legend">
+            <p class="views">Views</p>
+            <p class="purchases">Purchases</p>
+          </div>
+          <div class="charts">
+            <ol>
+              <li class="day1">
+                <p class="day">MON</p>
+                <div class="graph_area">
+                  <span class="view_bullet">
+                    <span class="sr_only">view_35</span>
+                  </span>
+                  <span class="pur_bullet">
+                    <span class="sr_only">pur_40</span>
+                  </span>
+                </div>
+              </li>
+              <li class="day2">
+                <p class="day">TUE</p>
+                <div class="graph_area">
+                  <span class="view_bullet">
+                    <span class="sr_only">view_35</span>
+                  </span>
+                  <span class="pur_bullet">
+                    <span class="sr_only">pur_40</span>
+                  </span>
+                </div>
+              </li>
+              <li class="day3">
+                <p class="day">WED</p>
+                <div class="graph_area">
+                  <span class="view_bullet">
+                    <span class="sr_only">view_35</span>
+                  </span>
+                  <span class="pur_bullet">
+                    <span class="sr_only">pur_40</span>
+                  </span>
+                </div>
+              </li>
+              <li class="day4">
+                <p class="day">THU</p>
+                <div class="graph_area">
+                  <span class="view_bullet">
+                    <span class="sr_only">view_35</span>
+                  </span>
+                  <span class="pur_bullet">
+                    <span class="sr_only">pur_40</span>
+                  </span>
+                </div>
+              </li>
+              <li class="day5">
+                <p class="day">FRI</p>
+                <div class="graph_area">
+                  <span class="view_bullet">
+                    <span class="sr_only">view_35</span>
+                  </span>
+                  <span class="pur_bullet">
+                    <span class="sr_only">pur_40</span>
+                  </span>
+                </div>
+              </li>
+              <li class="day6">
+                <p class="day">SAT</p>
+                <div class="graph_area">
+                  <span class="view_bullet">
+                    <span class="sr_only">view_35</span>
+                  </span>
+                  <span class="pur_bullet">
+                    <span class="sr_only">pur_40</span>
+                  </span>
+                </div>
+              </li>
+              <li class="day7">
+                <p class="day">SUN</p>
+                <div class="graph_area">
+                  <span class="view_bullet">
+                    <span class="sr_only">view_35</span>
+                  </span>
+                  <span class="pur_bullet">
+                    <span class="sr_only">pur_40</span>
+                  </span>
+                </div>
+              </li>
+            </ol>
+            <div class="graph_line">
+              <canvas id="canvas"></canvas>
+            <div class="lines">
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const canvas = document.getElementById('canvas');
+
+      canvas.width = 260; 
+      canvas.height = 105; 
+        
+      const ctx = canvas.getContext('2d');
+
+      ctx.strokeStyle = "#ef5c41";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(19, 53);
+      ctx.lineTo(60, 22);
+      ctx.lineTo(100, 28);
+      ctx.lineTo(138, 19);
+      ctx.lineTo(173, 40);
+      ctx.lineTo(204, 55);
+      ctx.lineTo(240, 26);
+      ctx.stroke();
+      ctx.closePath();
+
+      ctx.strokeStyle = "#1a88f4";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(19, 63);
+      ctx.lineTo(60, 49);
+      ctx.lineTo(100, 59);
+      ctx.lineTo(138, 51);
+      ctx.lineTo(173, 58);
+      ctx.lineTo(204, 73);
+      ctx.lineTo(240, 63);
+      ctx.stroke();
+      ctx.closePath();
+    </script>
+  </body>
+</html>

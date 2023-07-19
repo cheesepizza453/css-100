@@ -1,0 +1,240 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+ol {
+  list-style-type: none;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+
+.sr_only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.background {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  background-color: #42a7a1;
+  box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 50%;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 1px 2px 15px 5px rgba(0, 0, 0, 0.3);
+}
+
+.title_container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 60px;
+  padding: 15px;
+  background-color: #f1ba64;
+  color: #fff;
+}
+
+.title_top,
+.title_bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 0;
+}
+
+.title_top .title,
+.title_bottom .money {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.title_top .sub_title,
+.title_bottom .date {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.contents_container {
+  position: relative;
+  height: 100%;
+  padding: 10px;
+  font-size: 11px;
+  color: #aaa;
+}
+
+.contents_container .legend {
+  display: flex;
+  justify-content: end;
+}
+
+.legend .views {
+  position: relative;
+  margin-right: 35px;
+}
+
+.legend .purchases {
+  position: relative;
+}
+
+.legend .views:before,
+.legend .purchases:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -16px;
+  width: 10px;
+  height: 3px;
+  border-radius: 3px;
+}
+
+.legend .views:before {
+  background-color: #ef5c41;
+}
+
+.legend .purchases:before {
+  background-color: #1a88f4;
+}
+
+.contents_container .charts {
+  position: relative;
+  height: calc(100% - 15px);
+}
+
+.charts ol {
+  display: flex;
+  height: 100%;
+}
+
+.charts li {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.charts .graph_area {
+  height: 100%;
+}
+
+.charts .graph_area .view_bullet,
+.charts .graph_area .pur_bullet {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  z-index: 10;
+}
+
+.charts .graph_area .view_bullet {
+  background-color: #ef5c41;
+}
+
+.charts .graph_area .pur_bullet {
+  background-color: #1a88f4;
+}
+
+.charts .day1 .view_bullet {
+  top: 50px;
+}
+.charts .day1 .pur_bullet {
+  top: 60px;
+}
+.charts .day2 .view_bullet {
+  top: 20px;
+}
+.charts .day2 .pur_bullet {
+  top: 47px;
+}
+.charts .day3 .view_bullet {
+  top: 26px;
+}
+.charts .day3 .pur_bullet {
+  top: 57px;
+}
+.charts .day4 .view_bullet {
+  top: 17px;
+}
+.charts .day4 .pur_bullet {
+  top: 49px;
+}
+.charts .day5 .view_bullet {
+  top: 37px;
+}
+.charts .day5 .pur_bullet {
+  top: 55px;
+}
+.charts .day6 .view_bullet {
+  top: 52px;
+}
+.charts .day6 .pur_bullet {
+  top: 70px;
+}
+.charts .day7 .view_bullet {
+  top: 22px;
+}
+.charts .day7 .pur_bullet {
+  top: 60px;
+}
+
+.charts .day1 .view_bullet:after {
+  content: "";
+  display: block;
+}
+
+.charts .lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.charts .lines .line {
+  position: absolute;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+}
+
+.charts .lines .line:first-child {
+  top: 12px;
+}
+
+.charts .lines .line:nth-child(2) {
+  top: 45px;
+}
+
+.charts .lines .line:last-child {
+  top: 82px;
+}
