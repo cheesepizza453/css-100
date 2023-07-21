@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>day007</title>
+  </head>
+  <body>
+    <div class="background">
+      <div id="box">
+        <div class="top_container">
+          <div class="menu_area">
+            <button id="menu_btn">
+              <span class="btn_top_element"></span>
+              <span class="btn_bottom_element"></span>
+            </button>
+          </div>
+          <div class="navi">
+            <p>Notifications</p>
+          </div>
+          <div class="search_area" id="search_area">
+            <button id="search_btn">
+              <div class="btn_icon">
+                <span class="search_btn_element_left"></span>
+                <span class="search_btn_element_right"></span>
+              </div>
+              <span class="sr_only">search</span>
+            </button>
+            <input class="search_input" type="text" placeholder="Search..." />
+          </div>
+        </div>
+        <div class="contents_area">
+          <span class="line"></span>
+          <ul>
+            <li class="noti">
+              <div class="noti_left">
+                <span class="circle"></span>
+              </div>
+              <div class="noti_right">
+                <span class="time">9:24 AM</span>
+                <p><strong>유재석</strong>님께서 피드를 업로드하셨습니다.</p>
+              </div>
+            </li>
+            <li class="noti">
+              <div class="noti_left">
+                <span class="circle"></span>
+              </div>
+              <div class="noti_right">
+                <span class="time">8:19 AM</span>
+                <p><strong>조세호</strong>님께서 불참 신청을 하셨습니다.</p>
+              </div>
+            </li>
+            <li class="noti">
+              <div class="noti_left">
+                <span class="circle"></span>
+              </div>
+              <div class="noti_right">
+                <span class="time">yesterday</span>
+                <p><strong>빈지노</strong>님께서 당신을 태그하셨습니다.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <ul id="gnb_menu_list">
+        <li class="gnb_menu">
+          <a class="menu">Dashboard</a>
+        </li>
+        <li class="gnb_menu">
+          <a class="menu">Profile</a>
+        </li>
+        <li class="gnb_menu">
+          <a class="menu">Notifications</a>
+        </li>
+        <li class="gnb_menu">
+          <a class="menu">Messages</a>
+        </li>
+        <li class="gnb_menu">
+          <a class="menu">Settings</a>
+        </li>
+      </ul>
+    </div>
+    <script>
+      const searchBtn = document.getElementById("search_btn");
+      const searchArea = document.getElementById("search_area");
+      const menuBtn = document.getElementById("menu_btn");
+      const menuArea = document.getElementById("gnb_menu_list");
+      const box = document.getElementById("box");
+
+      searchBtn.addEventListener("click", () => {
+        searchArea.classList.toggle("on");
+      });
+
+      menuBtn.addEventListener("click", () => {
+        box.classList.toggle("on");
+        menuArea.classList.toggle("on");
+      });
+    </script>
+  </body>
+</html>
