@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>day008</title>
+  </head>
+  <body>
+    <div class="background">
+      <div class="center_ball"></div>
+    </div>
+    <script>
+      const background = document.querySelector(".background");
+
+      for (let i = 0; i < 20; i++) {
+        const ballElement = document.createElement("span");
+        const animationDuration = Math.floor(Math.random() * (7 - 3) + 3);
+        const randomSign = Math.random() < 0.5 ? -1 : 1;
+        const transformOriginOption = Math.floor(Math.random() * 60) * randomSign;
+        const transformOriginLeftOption = Math.floor(Math.random() * 60) * randomSign;
+        const widthAndHeight = Math.floor(Math.random() * (30 - 25) + 25);
+
+        ballElement.classList.add("ball");
+        ballElement.setAttribute("id", `ball${i + 1}`);
+        ballElement.style.transformOrigin = `${transformOriginOption + widthAndHeight / 2}px ${
+          transformOriginLeftOption + widthAndHeight / 2
+        }px`;
+        ballElement.style.animationDuration = `${animationDuration}s`;
+        ballElement.style.width = `${widthAndHeight}px`;
+        ballElement.style.height = `${widthAndHeight}px`;
+        background.appendChild(ballElement);
+      }
+    </script>
+  </body>
+</html>
