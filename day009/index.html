@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>day009</title>
+  </head>
+  <body>
+    <div class="background">
+      <div class="rain_container">
+        <div class="moon"></div>
+        <div class="rain_area"></div>
+      </div>
+      <div class="info_container">
+        <div class="left">
+          <p class="now_temp">24°</p>
+          <div class="weather_area">
+            <p>Wind: E 7 km/h</p>
+            <p>Humidity: 87%</p>
+          </div>
+        </div>
+        <div class="today_temp_area">
+          <p>TUE <strong>21° / 9°</strong></p>
+          <p>WED <strong>23° / 10°</strong></p>
+        </div>
+      </div>
+    </div>
+    <script>
+      const rainDrop = document.querySelector(".rain_area");
+
+      for (let i = 0; i < 50; i++) {
+        const rainDropBigElement = document.createElement("span");
+        const rainDropMediumElement = document.createElement("span");
+        const rainDropSmallElement = document.createElement("span");
+        const delayTimeBig = Math.random() * 1.5 - 1.5;
+        const delayTimeMedium = Math.random() * 1.6 - 1.6;
+        const delayTimeSmall = Math.random() * 1.7 - 1.7;
+        const rightBig = Math.floor(Math.random() * 400 - 70);
+        const rightMedium = Math.floor(Math.random() * 400 - 20);
+        const rightSmaill = Math.floor(Math.random() * (400 - 100));
+
+        rainDropBigElement.classList.add("raindrop_big");
+        rainDropBigElement.classList.add("raindrop");
+        rainDropBigElement.setAttribute("id", `raindrop_big${i + 1}`);
+        rainDropBigElement.style.animationDelay = `${delayTimeBig}s`;
+        rainDropBigElement.style.right = `${rightBig}px`;
+        rainDrop.appendChild(rainDropBigElement);
+
+        rainDropMediumElement.classList.add("raindrop_medium");
+        rainDropMediumElement.classList.add("raindrop");
+        rainDropMediumElement.setAttribute("id", `raindrop_medium${i + 1}`);
+        rainDropMediumElement.style.animationDelay = `${delayTimeMedium}s`;
+        rainDropMediumElement.style.right = `${rightMedium}px`;
+        rainDrop.appendChild(rainDropMediumElement);
+
+        rainDropSmallElement.classList.add("raindrop_small");
+        rainDropSmallElement.classList.add("raindrop");
+        rainDropSmallElement.setAttribute("id", `raindrop_small${i + 1}`);
+        rainDropSmallElement.style.animationDelay = `${delayTimeSmall}s`;
+        rainDropSmallElement.style.right = `${rightSmaill}px`;
+        rainDrop.appendChild(rainDropSmallElement);
+      }
+    </script>
+  </body>
+</html>
