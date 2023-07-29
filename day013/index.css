@@ -1,0 +1,198 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400,300,300italic);
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+.background {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.bg_wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: url("https://mblogthumb-phinf.pstatic.net/MjAyMjAxMjVfMjg0/MDAxNjQzMTAyOTg0Nzgz.sLrqOJ2S3r6pLboUm5yJTjB_JECC0zO9Tt3y_h86aJcg.w5VER_KDRAW3yRq8-nypsm2aGmKurM5YieSFcr1Vg0Qg.JPEG.minziminzi128/IMG_7374.JPG?type=w800")
+    no-repeat;
+  background-size: cover;
+}
+.bg_wrapper:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.bg_wrapper:hover:after {
+  opacity: 1;
+}
+
+.bg_wrapper .profile_open_btn {
+  position: relative;
+  width: 110px;
+  height: 60px;
+  border-radius: 60px;
+  border: none;
+  background: #e1e1e1;
+  z-index: 10;
+  box-shadow: 0 9px 0px #868686;
+  transform: translate(0, 0);
+  cursor: pointer;
+  color: #2b2b2b;
+  font-size: 14px;
+  font-weight: 300;
+  transition: all 0.3s ease-in-out;
+}
+
+.bg_wrapper .profile_open_btn:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 60px;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+  box-shadow: inset 3px 4px 10px #7b7b7b;
+}
+
+.bg_wrapper .profile_open_btn:hover {
+  box-shadow: 0 0px 0px #868686;
+  transform: translate(0, 12px);
+}
+
+.profile_wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  overflow: hidden;
+  display: none;
+}
+
+.profile_wrapper .top {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  width: 100%;
+  height: 50%;
+  background-image: url("https://djpms9a1go7nf.cloudfront.net/prod/uploads/thumbnail/images/10043263/167100535142741_md.png");
+  background-size: cover;
+  background-position: center;
+  z-index: 21;
+  transform: translateY(-300px);
+  opacity: 0;
+  transition: all 0.7s ease-in-out;
+}
+
+.profile_wrapper.on .top {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.profile_wrapper .top .close_btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 5px 15px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.profile_wrapper .top .close_btn:hover {
+  color: #fff;
+  background: #000;
+}
+
+.profile_wrapper .top .profile_img {
+  width: 120px;
+  height: 120px;
+  border-radius: 120px;
+  border: 2px solid #fff;
+  transform: translateY(60px);
+  background: url("https://mblogthumb-phinf.pstatic.net/MjAyMjAxMjVfMjg0/MDAxNjQzMTAyOTg0Nzgz.sLrqOJ2S3r6pLboUm5yJTjB_JECC0zO9Tt3y_h86aJcg.w5VER_KDRAW3yRq8-nypsm2aGmKurM5YieSFcr1Vg0Qg.JPEG.minziminzi128/IMG_7374.JPG?type=w800");
+  background-size: contain;
+}
+
+.profile_wrapper .bottom {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  background: #fff;
+  transform: translateY(300px);
+  transition: all 0.7s ease-in-out;
+}
+
+.profile_wrapper.on .bottom {
+  transform: translateY(0);
+}
+
+.profile_wrapper .bottom .user_name {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.profile_wrapper .bottom .btn_area {
+  width: 70%;
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.profile_wrapper .bottom .btn {
+  padding: 5px 15px;
+  border: 1px solid #2b2b2b;
+  border-radius: 10px;
+  width: 90px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+.profile_wrapper .bottom .btn:hover button {
+  color: #fff;
+}
+
+.profile_wrapper .bottom .btn:hover {
+  background: #2b2b2b;
+}

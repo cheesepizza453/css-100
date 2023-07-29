@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>day012</title>
+  </head>
+  <body>
+    <div class="background">
+      <div class="bg_wrapper">
+        <button class="profile_open_btn">profile</button>
+      </div>
+      <div class="profile_wrapper">
+        <div class="top">
+          <button class="close_btn">close</button>
+          <div class="profile_img"></div>
+        </div>
+        <div class="bottom">
+          <p class="user_name">D12!</p>
+          <ul class="btn_area">
+            <li class="btn"><button>call</button></li>
+            <li class="btn"><button>message</button></li>
+            <li class="btn"><button>like</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script>
+      const profileOpenBtn = document.querySelector(".profile_open_btn");
+      const profileWrapper = document.querySelector(".profile_wrapper");
+      const closeBtn = document.querySelector(".close_btn");
+
+      profileOpenBtn.addEventListener("click", () => {
+        profileWrapper.style.display = "block";
+        setTimeout(() => {
+          profileWrapper.classList.add("on");
+        }, 1);
+      });
+
+      closeBtn.addEventListener("click", () => {
+        profileWrapper.classList.remove("on");
+        setTimeout(() => {
+          profileWrapper.style.display = "none";
+        }, 701);
+      });
+    </script>
+  </body>
+</html>
