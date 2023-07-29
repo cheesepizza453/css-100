@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>day012</title>
+  </head>
+  <body>
+    <div class="background">
+      <div class="bg">"</div>
+      <div class="content_wrapper">
+        <p class="main_text">
+          I know quite certainly that I myself have no special talent; curiosity,
+          <strong id="translate_text">obsession</strong> and dogged endurance, combined with self-criticism have brought
+          me to my ideas.
+        </p>
+      </div>
+      <div class="dictionary_wrapper">
+        <div class="top">
+          <p>[əbˈseʃ(ə)n]</p>
+        </div>
+        <div class="bottom">
+          <p>Obsession, a persistent disturbing preoccupation with an often unreasonable idea or feeling.</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      const text = document.getElementById("translate_text");
+      const dictionary = document.querySelector(".dictionary_wrapper");
+
+      text.addEventListener("mouseover", () => {
+        dictionary.classList.add("on");
+      });
+
+      text.addEventListener("mouseout", () => {
+        dictionary.classList.remove("on");
+      });
+    </script>
+  </body>
+</html>
