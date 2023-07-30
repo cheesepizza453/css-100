@@ -1,0 +1,127 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400,300,300italic);
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+.background {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+svg {
+  animation: bicycle 1s infinite;
+}
+.bg_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 45%;
+  background: #efd376;
+  box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.bg_wrapper .street {
+  position: relative;
+  width: 60%;
+  height: 10px;
+  margin-top: -4px;
+  overflow: hidden;
+}
+
+.bg_wrapper .street div {
+  position: absolute;
+  top: 0;
+  right: -24px;
+  height: 4px;
+  background: #4b4841;
+  border-radius: 4px;
+}
+
+.bg_wrapper .street .stripe-1 {
+  width: 20px;
+  animation: street 2s infinite both;
+  animation-delay: 0s;
+}
+
+.bg_wrapper .street .stripe-2 {
+  width: 24px;
+  animation: street 2s infinite both;
+  animation-delay: 0.1s;
+}
+
+.bg_wrapper .street .stripe-3 {
+  width: 8px;
+  animation: street 2s infinite both;
+  animation-delay: 0.2s;
+}
+
+.bg_wrapper .street .stripe-4 {
+  width: 22px;
+  animation: street 2s infinite both;
+  animation-delay: 0.7s;
+}
+
+.bg_wrapper .street .stripe-5 {
+  width: 20px;
+  animation: street 2s infinite both;
+  animation-delay: 1s;
+}
+
+.bg_wrapper .street .stripe-6 {
+  width: 25px;
+  animation: street 2s infinite both;
+  animation-delay: 1.3s;
+}
+
+.bg_wrapper .street .stripe-7 {
+  width: 16px;
+  animation: street 2s infinite both;
+  animation-delay: 1.14s;
+}
+
+.bg_wrapper .street .stripe-8 {
+  width: 10px;
+  animation: street 2s infinite both;
+  animation-delay: 1.6s;
+}
+
+.bg_wrapper .street .stripe-9 {
+  width: 32px;
+  animation: street 2s infinite both;
+  animation-delay: 1.8s;
+}
+
+@keyframes street {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-230px);
+  }
+}
+
+@keyframes bicycle {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.93);
+  }
+}
