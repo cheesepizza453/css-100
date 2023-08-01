@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>day015</title>
+  </head>
+  <body>
+    <div class="background">
+      <div class="box">
+        <div class="upload_area">
+          <div class="title">
+            <h1>Drop file to upload</h1>
+          </div>
+          <div class="bottom">
+            <div class="upload_step1">
+              <div class="upload_img_area">
+                <div class="upload_img"></div>
+                <input onchange="fileUpload() " id="data" class="upload_input" type="file" />
+                <div id="upload_file_name"></div>
+              </div>
+              <button id="upload_button">upload file</button>
+            </div>
+            <div class="upload_step2">
+              <div class="loading_bar"></div>
+              <div class="upload_text_area">
+                <p>파일을 업로드중입니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const data = document.querySelector(".upload_input");
+      const dataName = document.getElementById("upload_file_name");
+      const container = document.querySelector(".upload_container");
+      const uploadStep1 = document.querySelector(".upload_step1");
+      const uploadStep2 = document.querySelector(".upload_step2");
+      const uploadButton = document.getElementById("upload_button");
+      const uploadStep1Img = document.querySelector(".upload_img");
+      const uploadStep2Text = document.querySelector(".upload_text_area");
+
+      function fileUpload() {
+        dataName.textContent = data.files[0].name;
+        if (dataName.textContent.length > 0) {
+          uploadStep1Img.style.opacity = 0;
+        }
+      }
+
+      uploadButton.addEventListener("click", () => {
+        if (dataName.textContent.length > 0) {
+          uploadStep1.style.display = "none";
+          uploadStep2.style.display = "flex";
+
+          setTimeout(() => {
+            uploadStep2Text.textContent = "업로드가 완료되었습니다.";
+          }, 4000);
+        }
+      });
+    </script>
+  </body>
+</html>
