@@ -1,0 +1,93 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400,300,300italic);
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+.background {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  background: #000;
+}
+
+.background:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(321deg, black, #fff);
+  opacity: 1;
+  transition: all 2s;
+}
+
+.background:hover:before {
+  opacity: 0;
+}
+
+.background:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(70deg, black, #fff);
+  opacity: 0;
+  transition: all 2s;
+}
+
+.background:hover:after {
+  opacity: 1;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 70%;
+  z-index: 10;
+}
+
+.polygon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 158px;
+}
+
+.middle {
+  fill: #555;
+  transition: all 2s;
+}
+.dark {
+  fill: #222;
+  transition: all 2s;
+}
+.light {
+  fill: #ddd;
+  transition: all 2s;
+}
+
+.polygon:hover .middle {
+  fill: #ddd;
+}
+.polygon:hover .dark {
+  fill: #555;
+}
+.polygon:hover .light {
+  fill: #222;
+}
