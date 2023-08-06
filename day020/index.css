@@ -1,0 +1,196 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400,300,300italic);
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+.background {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  background: #415eaf;
+}
+
+#cb {
+  display: none;
+}
+
+.button {
+  position: absolute;
+  left: 50%;
+  bottom: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, 0);
+  background: #dbe0f0;
+  width: 50%;
+  height: 40px;
+  border-radius: 70px;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: bold;
+  letter-spacing: -0.2px;
+  cursor: pointer;
+}
+
+.button.send {
+  z-index: 2;
+}
+.button.reset {
+  opacity: 0;
+}
+
+.button:hover {
+  color: #333;
+  background: #f2f2f2;
+}
+
+.circle {
+  position: absolute;
+  top: 90px;
+  left: 110px;
+  width: 180px;
+  height: 180px;
+  background: #5b74bc;
+  border-radius: 100%;
+}
+
+.circle-outer {
+  position: absolute;
+  top: 87px;
+  left: 107px;
+  width: 186px;
+  height: 186px;
+  border-radius: 100%;
+  border: 6px solid #5b74bc;
+}
+
+.icon {
+  position: absolute;
+  top: 145px;
+  left: 140px;
+  stroke-width: 2px;
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 325 325;
+}
+
+.mail {
+  width: 120px;
+  height: 70px;
+  stroke-dashoffset: 0;
+}
+
+.plane {
+  width: 120px;
+  height: 110px;
+  stroke-dashoffset: 325;
+}
+
+#cb:checked ~ .send {
+  animation: 1s sendBtn ease-in-out forwards 1.3s;
+}
+
+#cb:checked ~ .button.reset {
+  animation: resetBtn 0.5s cubic-bezier(1, -0.03, 0.58, 1) 2.5s forwards;
+}
+
+#cb:checked ~ .circle {
+  animation: circle 0.8s ease-in-out forwards;
+}
+
+#cb:checked ~ .circle-outer {
+  animation: circle 0.8s ease-in-out forwards;
+  animation-delay: 0.2s;
+}
+
+#cb:checked ~ .mail {
+  stroke-dashoffset: 326;
+  transition: all 0.8s ease-in-out;
+}
+
+#cb:checked ~ .plane {
+  stroke-dashoffset: 0;
+  animation: plane 1s ease-in-out both;
+  animation-delay: 0.8s;
+  transition: stroke-dashoffset 0.8s ease-in-out;
+  transition-delay: 0.7s;
+}
+
+@keyframes circle {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes plane {
+  0% {
+    transform: translate(0, 0%);
+  }
+  20% {
+    transform: scale(1.1);
+  }
+  80% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    transform: translate(150px, -100px) scale(0.1);
+    opacity: 0;
+  }
+}
+
+@keyframes sendBtn {
+  0% {
+    color: #333;
+  }
+  30% {
+    width: 50%;
+    color: transparent;
+  }
+  50%,
+  70% {
+    width: 40px;
+    color: transparent;
+    transform: translate(-50%, 0) scale(1);
+    animation-timing-function: cubic-bezier(1, 0.31, 0.78, 1.4);
+  }
+  100% {
+    transform: translate(-50%, 0) scale(0);
+    width: 40px;
+    color: transparent;
+  }
+}
+
+@keyframes resetBtn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
