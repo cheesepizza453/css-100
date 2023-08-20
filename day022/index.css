@@ -30,6 +30,11 @@
   height: 252px;
   transform-style: preserve-3d;
   transform: translateX(-50%) rotateX(0deg);
+  transition: all 1s ease-in-out;
+}
+
+.card_container.on {
+  transform: translateX(-50%) rotateX(180deg);
 }
 
 .card_container:after {
@@ -79,7 +84,7 @@
 .card_front .card_holder {
   position: absolute;
   top: 30px;
-  right: 196px;
+  left: 100px;
   font-size: 16px;
   background: rgba(245, 202, 214, 0.6);
   color: #fff;
@@ -198,7 +203,7 @@ input {
 
 .select_inner select {
   width: 47.5%;
-  padding: 6px 0;
+  padding: 6px 0 6px 10px;
   border: none;
 }
 
@@ -214,4 +219,5 @@ input {
   font-size: 14px;
   font-weight: 600;
   color: #fff;
+  cursor: pointer;
 }

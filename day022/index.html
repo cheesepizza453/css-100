@@ -31,7 +31,7 @@
             <div class="card_bar"></div>
             <div class="card_cvc_area">
               <p class="card_cvc_title">CVC</p>
-              <p class="card_cvc_number"><span>*** </span>000</p>
+              <p class="card_cvc_number">*** <span id="card_cvc_number"></span></p>
             </div>
             <p class="signiture_title">AUTHORIZED SIGNITURE</p>
             <div class="info_area">
@@ -45,30 +45,32 @@
         <div class="input_container">
           <div class="input_area">
             <label for="card_number">Card Number</label>
-            <input type="number" id="card_number" maxlength="16" />
+            <input type="number" id="card_number" maxlength="16" oninput="numberMaxLength(this);" />
           </div>
           <div class="input_area">
             <label for="card_holder">Card Holder</label>
-            <input type="text" id="input_holder" />
+            <input type="text" id="input_holder" maxlength="17" oninput="numberMaxLength(this);" />
           </div>
           <div class="input_area">
             <div class="select_inner">
               <label for="expiration_date">Expiration Date</label>
               <select id="expiration_date">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
+                <option selected disabled>MM</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
                 <option value="10">10</option>
                 <option value="11">11</option>
                 <option value="12">12</option>
               </select>
               <select id="expiration_date_year">
+                <option selected disabled>YY</option>
                 <option value="23">23</option>
                 <option value="24">24</option>
                 <option value="25">25</option>
@@ -80,7 +82,7 @@
           </div>
           <div class="input_area">
             <label for="card_cvc">CVC</label>
-            <input type="number" id="card_cvc" />
+            <input type="number" id="card_cvc" maxlength="3" oninput="numberMaxLength(this);" />
           </div>
           <div class="button_are">
             <button id="submit_button" type="button">Submit</button>
@@ -93,9 +95,10 @@
       const holderInput = document.getElementById("card_holder");
       const dateMonth = document.getElementById("expiration_date");
       const dateYear = document.getElementById("expiration_date_year");
-      const CVC = document.getElementById("card_cvc");
+      const numberCVC = document.getElementById("card_cvc");
       const submit = document.getElementById("submit_button");
 
+      const cardContainer = document.querySelector(".card_container");
       const cardNumberSpans = [
         document.querySelector(".card_number_1"),
         document.querySelector(".card_number_2"),
@@ -105,9 +108,33 @@
       const cardName = document.getElementById("input_holder");
       const cardMonth = document.querySelector(".month");
       const cardYear = document.querySelector(".year");
+      const cardCVC = document.getElementById("card_cvc_number");
+
+      function numberMaxLength(e) {
+        if (e.value.length > e.maxLength) {
+          e.value = e.value.slice(0, e.maxLength);
+        }
+      }
+
+      function checkInputs() {
+        return (
+          numberInput.value.length === 16 &&
+          cardName.value.trim() !== "" &&
+          dateMonth.value !== "MM" &&
+          dateYear.value !== "YY"
+        );
+      }
+
+      function updateSubmitButton() {
+        if (checkInputs()) {
+          cardContainer.classList.add("on");
+        } else if (numberCVC.value.length === 0) {
+          cardContainer.classList.remove("on");
+        }
+      }
 
       numberInput.addEventListener("input", () => {
-        const inputValue = numberInput.value.replace(/\s/g, ""); // 공백 제거
+        const inputValue = numberInput.value.replace(/\s/g, "");
 
         for (let i = 0; i < cardNumberSpans.length; i++) {
           const startIndex = i * 4;
@@ -115,17 +142,46 @@
           const chunk = inputValue.slice(startIndex, endIndex);
 
           if (i === 1 || i === 2) {
-            // 두 번째와 세 번째 칸에는 '*' 표시
             cardNumberSpans[i].textContent = chunk.length > 0 && chunk !== "*" ? "*".repeat(chunk.length) : "0000";
           } else {
             cardNumberSpans[i].textContent = chunk.length > 0 ? chunk.padStart(4, "0") : "0000";
           }
+        }
+        updateSubmitButton();
+        if (inputValue.length !== 16) {
+          cardContainer.classList.remove("on");
         }
       });
 
       cardName.addEventListener("input", () => {
         const inputValue = cardName.value;
         holderInput.textContent = inputValue.length > 0 ? inputValue : "Your Name";
+        updateSubmitButton();
+        if (inputValue.length !== 16) {
+          cardContainer.classList.remove("on");
+        }
+      });
+
+      dateMonth.addEventListener("input", () => {
+        const inputValue = dateMonth.value;
+        cardMonth.textContent = inputValue;
+        updateSubmitButton();
+      });
+
+      dateYear.addEventListener("input", () => {
+        const inputValue = dateYear.value;
+        cardYear.textContent = inputValue;
+        updateSubmitButton();
+      });
+
+      numberCVC.addEventListener("input", () => {
+        const inputValue = numberCVC.value;
+        cardCVC.textContent = inputValue.length > 0 ? inputValue : "000";
+        updateSubmitButton();
+
+        if (inputValue.length === 0) {
+          cardContainer.classList.remove("on");
+        }
       });
     </script>
   </body>
