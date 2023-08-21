@@ -142,7 +142,7 @@
           const chunk = inputValue.slice(startIndex, endIndex);
 
           if (i === 1 || i === 2) {
-            cardNumberSpans[i].textContent = chunk.length > 0 && chunk !== "*" ? "*".repeat(chunk.length) : "0000";
+            cardNumberSpans[i].textContent = chunk.length > 0 ? "*".repeat(chunk.length) : "0000";
           } else {
             cardNumberSpans[i].textContent = chunk.length > 0 ? chunk.padStart(4, "0") : "0000";
           }
