@@ -183,6 +183,14 @@
           cardContainer.classList.remove("on");
         }
       });
+
+      submit.addEventListener("click", () => {
+        if (cardContainer.classList.contains("on")) {
+          alert("전송되었습니다.");
+        } else {
+          alert("카드 정보를 입력해주세요.");
+        }
+      });
     </script>
   </body>
 </html>
