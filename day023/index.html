@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>day021</title>
+  </head>
+  <body>
+    <div class="background off">
+      <div class="switch_wrapper">
+        <div class="switch_container"></div>
+      </div>
+      <div class="hand"></div>
+    </div>
+    <script>
+      const background = document.querySelector(".background");
+      const switchButton = document.querySelector(".switch_container");
+
+      switchButton.addEventListener("click", () => {
+        if (background.classList.contains("off")) {
+          background.classList.remove("off");
+        }
+        background.classList.toggle("on");
+      });
+    </script>
+  </body>
+</html>
