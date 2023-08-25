@@ -10,18 +10,14 @@
 .background {
   position: absolute;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  height: 400px;
+  width: 100vw;
+  height: 450px;
   box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   background: #333;
-  transition-delay: 1.5s;
+  transition-delay: 0.98s;
 }
 
 .on.background {
@@ -38,7 +34,7 @@
   background: #888;
   border-radius: 10px;
   box-shadow: inset 7px 2px 4px rgba(255, 255, 255, 0.5), 4px 4px 0px #222;
-  transition-delay: 1.5s;
+  transition-delay: 0.98s;
 }
 
 .on.background .switch_wrapper {
@@ -71,7 +67,8 @@
   border-right: 3px solid #555;
   border-bottom: 1px solid #555;
   border-left: 3px solid #555;
-  transition-delay: 1.5s;
+  transition-delay: 0.98s;
+  cursor: pointer;
 }
 
 .on.background .switch_container {
@@ -88,7 +85,7 @@
   left: 0;
   border-radius: 8px;
   box-shadow: inset -6px 0px 0px #989898;
-  transition-delay: 1.5s;
+  transition-delay: 0.98s;
 }
 
 .on.background .switch_container:before {
@@ -106,7 +103,7 @@
   background: #666;
   border-radius: 2px;
   transform: translateY(-50%);
-  transition-delay: 1.5s;
+  transition-delay: 0.98s;
 }
 
 .on.background .switch_container:after {
@@ -115,17 +112,17 @@
 
 .hand {
   position: absolute;
-  left: 110px;
-  top: 200px;
-  width: 350px;
-  height: 544px;
-  background: url("https://velog.velcdn.com/images/mimizl/post/1e1cd157-9331-457f-8d76-e86d53705639/image.png")
+  left: calc(50vw - 45px);
+  top: 220px;
+  width: 200px;
+  height: 444px;
+  background: url("https://velog.velcdn.com/images/mimizl/post/c192634a-703a-4c02-b6fb-6e5eb03b6366/image.png")
     no-repeat;
   background-size: contain;
   transition: 1s all;
   will-change: transform;
-  animation: 2.8s handOff both;
-  transform: rotateX(0deg) translate(0px, 200px);
+  animation: 2s handOff both;
+  transform: rotateX(0deg) translate(0px, 230px);
   z-index: 10;
 }
 
@@ -134,45 +131,45 @@
 }
 
 .on.background .hand {
-  animation: 2.8s handOn both;
+  animation: 2s handOn both;
 }
 
 @keyframes handOn {
   0% {
-    transform: rotateX(0deg) translate(0px, 200px);
+    transform: rotateX(0deg) translate(0px, 230px);
     animation-timing-function: ease-out;
   }
-  47% {
+  40% {
     transform: rotateX(0deg) translate(0px, 0px);
   }
   50% {
-    transform: rotateX(20deg) translate(0px, 0);
+    transform: rotateX(30deg) translate(0px, 0);
   }
-  53% {
+  60% {
     transform: rotateX(0deg) translate(0px, 0);
     animation-timing-function: ease-in;
   }
   100% {
-    transform: rotateX(0deg) translate(0px, 200px);
+    transform: rotateX(0deg) translate(0px, 230px);
   }
 }
 
 @keyframes handOff {
   0% {
-    transform: rotateX(0deg) translate(0px, 200px);
+    transform: rotateX(0deg) translate(0px, 230px);
     animation-timing-function: ease-out;
   }
-  47% {
+  40% {
     transform: rotateX(0deg) translate(-40px, 0);
   }
   50% {
-    transform: rotateX(20deg) translate(-40px, 0);
+    transform: rotateX(30deg) translate(-40px, 0);
   }
-  53% {
+  60% {
     transform: rotateX(0deg) translate(-40px, 0);
     animation-timing-function: ease-in;
   }
   100% {
-    transform: rotateX(0deg) translate(0px, 200px);
+    transform: rotateX(0deg) translate(0px, 230px);
   }
 }
